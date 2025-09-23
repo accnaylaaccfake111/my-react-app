@@ -5,3 +5,8 @@
 `npm install --save three` <br>
 # RUN CODE:
 `npm start`
+# RUN DOCKER:
+## WINDOWS:
+`docker run -p 3000:3000 3981faa622bd`
+## UBUNTU:
+`sudo docker run -p 3000:3000 3981faa622bd`
