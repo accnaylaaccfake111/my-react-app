@@ -1,7 +1,7 @@
 # DOWNLOAD:
-`npm install`
-`npm install @mui/material @emotion/react @emotion/styled`
-`npm install react-toastify`
-`npm install --save three`
+`npm install` <br>
+`npm install @mui/material @emotion react @emotion/styled` <br>
+`npm install react-toastify` <br>
+`npm install --save three` <br>
 # RUN CODE:
 `npm start`
