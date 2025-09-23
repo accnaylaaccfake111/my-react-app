@@ -48,19 +48,19 @@ function FestivalList() {
             }}>
                 <Stack direction="row" spacing={2} sx={{ mb:2 }}>
                     <Item>TET NGUYEN DAN</Item>
-                    <Button variant='contained' onClick={() => isOnClick('TET NGUYEN DAN')}>
+                    <Button variant='outlined' onClick={() => isOnClick('TET NGUYEN DAN')}>
                         Chi tiet
                     </Button>
                 </Stack>
                 <Stack direction="row" spacing={2} sx={{ mb:2 }}>
                     <Item>TRUNG THU</Item>
-                    <Button variant='contained' onClick={() => isOnClick('TRUNG THU')}>
+                    <Button variant='outlined' onClick={() => isOnClick('TRUNG THU')}>
                         Chi tiet
                     </Button>
                 </Stack>
                 <Stack direction="row" spacing={2} sx={{ mb:2 }}>
                     <Item>LE HOI DUA</Item>
-                    <Button variant='contained' onClick={() => isOnClick('LE HOI DUA')}>
+                    <Button variant='outlined' onClick={() => isOnClick('LE HOI DUA')}>
                         Chi tiet
                     </Button>
                 </Stack>
