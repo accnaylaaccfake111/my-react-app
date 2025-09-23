@@ -6,7 +6,7 @@
 # RUN CODE:
 `npm start`
 # RUN DOCKER:
-$ WINDOWS:
+<p> WINDOWS: </p>
 `docker run -p 3000:3000 3981faa622bd`
-$ UBUNTU:
+<p> UBUNTU: </p>
 `sudo docker run -p 3000:3000 3981faa622bd`
