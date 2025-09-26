@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Home from './component/home'
-import FestivalForm from './component/festivalForm'
-import FestivalList from './component/festivalList';
-import CharacterModel from './component/characterModel'
+import Home from './component/pages/home'
+import FestivalForm from './component/pages/festivalForm'
+import FestivalList from './component/pages/festivalList';
+import CharacterModel from './component/pages/characterModel'
 
 function App() {
   return (
