@@ -1,6 +1,6 @@
 function Home(){
     return(
-        <h1 style={{textAlign: 'center'}}>MY REACT APP!</h1>
+        <h1 style={{textAlign: 'center'}}>LE HOI TAI VIET NAM</h1>
     );
 }
 
