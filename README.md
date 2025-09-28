@@ -16,4 +16,9 @@ docker build -t my-app:latest .
 ## UBUNTU:
 `sudo docker run -p 3000:3000 3981faa622bd`
 
-# PUSH TO DOCKER HUB
+# USER DOCKER COMPOSE
+```bash
+docker compose pull
+docker compose up -d --no-build
+docker logs <container-name>
+```
