@@ -6,7 +6,14 @@
 # RUN CODE:
 `npm start`
 # RUN DOCKER:
+## BUILD DOCKER
+```bash
+docker build -t my-app:latest .
+```
+
 ## WINDOWS:
 `docker run -p 3000:3000 3981faa622bd`
 ## UBUNTU:
 `sudo docker run -p 3000:3000 3981faa622bd`
+
+# PUSH TO DOCKER HUB
