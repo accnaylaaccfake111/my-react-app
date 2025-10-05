@@ -1,8 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Home from './component/pages/home';
-import FestivalForm from './component/pages/festivalForm';
-import FestivalList from './component/pages/festivalList';
-import CharacterModel from './component/pages/characterModel';
+import Home from './pages/homePage';
+import FestivalListPage from './pages/festivalListPage';
+import CharacterModelPage from './pages/characterModelPage';
 
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -23,7 +22,6 @@ import { Aperture } from 'lucide-react';
 function App() {
   const pages = [
     { label: 'Home', path: '/' },
-    { label: 'Festival Form', path: '/festivalform' },
     { label: 'Festival List', path: '/festivallist' },
     { label: 'Character Model', path: '/charactermodel' },
   ];
@@ -159,9 +157,8 @@ function App() {
       {/* Routing */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/festivalform" element={<FestivalForm />} />
-        <Route path="/festivallist" element={<FestivalList />} />
-        <Route path="/charactermodel" element={<CharacterModel />} />
+        <Route path="/festivallist" element={<FestivalListPage />} />
+        <Route path="/charactermodel" element={<CharacterModelPage />} />
       </Routes>
     </BrowserRouter>
   );
