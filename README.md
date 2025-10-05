@@ -11,11 +11,6 @@
 docker build -t my-app:latest .
 ```
 
-## WINDOWS:
-`docker run -p 3000:3000 3981faa622bd`
-## UBUNTU:
-`sudo docker run -p 3000:3000 3981faa622bd`
-
 # USER DOCKER COMPOSE
 ```bash
 docker compose pull
