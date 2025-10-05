@@ -1,4 +1,4 @@
-function Home(){
+function Home() {
     return(
         <div>
             <h1 style={{textAlign: 'center'}}>NGHE THUAT HAT SAC BUA PHU LE</h1>

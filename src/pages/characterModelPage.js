@@ -1,5 +1,9 @@
+import CharacterModel from "../component/characterModel";
+
 function characterModelPage() {
-    return;
+    return (
+        <CharacterModel/>    
+    );
 }
 
 export default characterModelPage
