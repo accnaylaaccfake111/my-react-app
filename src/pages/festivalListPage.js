@@ -3,8 +3,8 @@ import FestivalList from '../component/festivalList'
 
 function FestivalListPage(){
     return(
-        <FestivalForm />
-        // <FestivalList />
+        <FestivalForm />,
+        <FestivalList />
     )
 }
 

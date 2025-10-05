@@ -1,74 +1,117 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
-import { Button } from '@mui/material';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import { Button, TextField, Box, Paper, Stack } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: (theme.vars ?? theme).palette.text.secondary,
-  width: '200px',
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
-  }),
-}));
+function FestivalPage() {
+  const [showInput, setShowInput] = useState(false);
+  const [value, setValue] = useState("");
+  const [festivals, setFestivals] = useState([
+    "TẾT NGUYÊN ĐÁN",
+    "TRUNG THU",
+    "LỄ HỘI DỪA",
+  ]);
 
-function FestivalList() {
-    const isOnClick = (festivalName) => {
-        toast.info(`BAN DANG TIM HIEU "${festivalName}"`, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        })
+  const handleToggle = () => {
+    setShowInput(true);
+  };
+
+  const handleSubmit = () => {
+    if (value.trim() === "") {
+      toast.error("INPUT FAILED!");
+    } else {
+      toast.success(`ĐÃ THÊM LỄ HỘI "${value}"!`);
+      setFestivals([...festivals, value.trim()]);
+      setValue("");
     }
-    
-    return(
-        <div style={{ 
-            textAlign: "center",
-            justifyContent: "center",
-        }}>
-            <h1>DANH SACH LE HOI</h1>
+  };
 
-            <Box sx={{ 
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}>
-                <Stack direction="row" spacing={2} sx={{ mb:2 }}>
-                    <Item>TET NGUYEN DAN</Item>
-                    <Button variant='outlined' onClick={() => isOnClick('TET NGUYEN DAN')}>
-                        Chi tiet
-                    </Button>
-                </Stack>
-                <Stack direction="row" spacing={2} sx={{ mb:2 }}>
-                    <Item>TRUNG THU</Item>
-                    <Button variant='outlined' onClick={() => isOnClick('TRUNG THU')}>
-                        Chi tiet
-                    </Button>
-                </Stack>
-                <Stack direction="row" spacing={2} sx={{ mb:2 }}>
-                    <Item>LE HOI DUA</Item>
-                    <Button variant='outlined' onClick={() => isOnClick('LE HOI DUA')}>
-                        Chi tiet
-                    </Button>
-                </Stack>
-            </Box>
+  const handleFestivalClick = (festivalName) => {
+    toast.info(`BẠN ĐANG TÌM HIỂU "${festivalName}"`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
-            <ToastContainer />
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: "center",
+    color: (theme.vars ?? theme).palette.text.secondary,
+    width: "200px",
+    ...theme.applyStyles?.("dark", {
+      backgroundColor: "#1A2027",
+    }),
+  }));
+
+  return (
+    <div
+      style={{
+        textAlign: "center",
+        justifyContent: "center",
+        margin: "20px",
+      }}
+    >
+      <h1>THÊM NỘI DUNG VÀO ĐI</h1>
+
+      {!showInput && (
+        <Button variant="outlined" onClick={handleToggle}>
+          Text
+        </Button>
+      )}
+
+      {showInput && (
+        <div style={{ marginTop: "20px" }}>
+          <TextField
+            label="Nhập nội dung lễ hội"
+            variant="outlined"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+          <div style={{ marginTop: "10px" }}>
+            <Button variant="contained" color="primary" onClick={handleSubmit}>
+              Submit
+            </Button>
+          </div>
         </div>
-    );
+      )}
+
+      <div style={{ marginTop: "50px" }}>
+        <h1>DANH SÁCH LỄ HỘI</h1>
+
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {festivals.map((festival, index) => (
+            <Stack direction="row" spacing={2} sx={{ mb: 2 }} key={index}>
+              <Item>{festival}</Item>
+              <Button
+                variant="outlined"
+                onClick={() => handleFestivalClick(festival)}
+              >
+                Chi tiết
+              </Button>
+            </Stack>
+          ))}
+        </Box>
+      </div>
+
+      <ToastContainer position="top-right" autoClose={3000} />
+    </div>
+  );
 }
 
-export default FestivalList;
+export default FestivalPage;

@@ -52,7 +52,7 @@ function App() {
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-          <Aperture />
+          <Aperture style={{ marginRight: '12px', marginLeft: '8px' }}/>
             <Typography
               variant="h6"
               noWrap

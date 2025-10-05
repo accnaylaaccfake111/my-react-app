@@ -1,5 +1,5 @@
 function characterModelPage() {
-    return 0;
+    return;
 }
 
 export default characterModelPage
