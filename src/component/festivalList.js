@@ -31,11 +31,15 @@ function FestivalPage() {
     toast.info(`BẠN ĐANG TÌM HIỂU "${festivalName}"`, {
       position: "top-right",
       autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
+    });
+  };
+
+  // ✅ Hàm xóa lễ hội
+  const handleDeleteFestival = (festivalName) => {
+    setFestivals(festivals.filter((f) => f !== festivalName));
+    toast.warn(`ĐÃ XÓA LỄ HỘI "${festivalName}"!`, {
+      position: "top-right",
+      autoClose: 3000,
     });
   };
 
@@ -59,7 +63,7 @@ function FestivalPage() {
         margin: "20px",
       }}
     >
-      <h1>THÊM NỘI DUNG VÀO ĐI</h1>
+      <h1>THEM NOI DUNG VAO DI</h1>
 
       {!showInput && (
         <Button variant="outlined" onClick={handleToggle}>
@@ -70,7 +74,7 @@ function FestivalPage() {
       {showInput && (
         <div style={{ marginTop: "20px" }}>
           <TextField
-            label="Nhập nội dung lễ hội"
+            label="input here"
             variant="outlined"
             value={value}
             onChange={(e) => setValue(e.target.value)}
@@ -84,7 +88,7 @@ function FestivalPage() {
       )}
 
       <div style={{ marginTop: "50px" }}>
-        <h1>DANH SÁCH LỄ HỘI</h1>
+        <h1>DANH SACH LE HOI</h1>
 
         <Box
           sx={{
@@ -100,9 +104,18 @@ function FestivalPage() {
               <Item>{festival}</Item>
               <Button
                 variant="outlined"
+                color="info"
                 onClick={() => handleFestivalClick(festival)}
               >
-                Chi tiết
+                DETAILS
+              </Button>
+              {/* ✅ Nút xóa */}
+              <Button
+                variant="outlined"
+                color="error"
+                onClick={() => handleDeleteFestival(festival)}
+              >
+                DELETE
               </Button>
             </Stack>
           ))}
