@@ -109,7 +109,6 @@ function FestivalPage() {
               >
                 DETAILS
               </Button>
-              {/* ✅ Nút xóa */}
               <Button
                 variant="outlined"
                 color="error"
