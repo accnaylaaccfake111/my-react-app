@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Home from './pages/homePage';
 import FestivalListPage from './pages/festivalListPage';
 import CharacterModelPage from './pages/characterModelPage';
-
+import LoginPage from './pages/loginPage'; 
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,7 +16,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-// import AdbIcon from '@mui/icons-material/Adb';
 import { Aperture } from 'lucide-react';
 
 function App() {
@@ -26,7 +25,12 @@ function App() {
     { label: 'Character Model', path: '/charactermodel' },
   ];
 
-  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+  // 👇 Chỉ giữ 3 mục cho user menu
+  const userMenu = [
+    { label: 'Profile', path: '/profile' },
+    { label: 'Login', path: '/login' },
+    { label: 'Sign up', path: '/signup' },
+  ];
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -52,7 +56,7 @@ function App() {
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-          <Aperture style={{ marginRight: '12px', marginLeft: '8px' }}/>
+            <Aperture style={{ marginRight: '12px', marginLeft: '8px' }} />
             <Typography
               variant="h6"
               noWrap
@@ -100,13 +104,19 @@ function App() {
                 sx={{ display: { xs: 'block', md: 'none' } }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page.label} onClick={handleCloseNavMenu} component={Link} to={page.path}>
+                  <MenuItem
+                    key={page.label}
+                    onClick={handleCloseNavMenu}
+                    component={Link}
+                    to={page.path}
+                  >
                     <Typography textAlign="center">{page.label}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
 
+            {/* Desktop navigation */}
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
                 <Button
@@ -121,10 +131,11 @@ function App() {
               ))}
             </Box>
 
+            {/* Avatar menu */}
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
+              <Tooltip title="Open user menu">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  <Avatar alt="User" src="/static/images/avatar/2.jpg" />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -143,9 +154,14 @@ function App() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
+                {userMenu.map((item) => (
+                  <MenuItem
+                    key={item.label}
+                    component={Link}
+                    to={item.path}
+                    onClick={handleCloseUserMenu}
+                  >
+                    <Typography textAlign="center">{item.label}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -154,11 +170,11 @@ function App() {
         </Container>
       </AppBar>
 
-      {/* Routing */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/festivallist" element={<FestivalListPage />} />
         <Route path="/charactermodel" element={<CharacterModelPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );
