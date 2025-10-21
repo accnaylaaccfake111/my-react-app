@@ -3,6 +3,7 @@ import Home from './pages/homePage';
 import FestivalListPage from './pages/festivalListPage';
 import CharacterModelPage from './pages/characterModelPage';
 import LoginPage from './pages/loginPage'; 
+import RegisterPage from './pages/registerPage';
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -175,6 +176,7 @@ function App() {
         <Route path="/festivallist" element={<FestivalListPage />} />
         <Route path="/charactermodel" element={<CharacterModelPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );
