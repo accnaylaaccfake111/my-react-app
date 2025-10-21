@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.sprmework.web.bind.annotation.*;
 import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:3000") // Cho phép React truy cập
